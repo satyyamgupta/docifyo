@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docfiyo - Solar Proposal Excel Templates for Solar Companies</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <style>
+        :root {
+            --color-primary: #002D5E;
+            --color-secondary: #00B4D8;
+            --color-accent: #00B4D8;
+            --color-dark: #002D5E;
+            --color-light: #f8f9fa;
+            --color-border: #e0e0e0;
+            --color-success: #27ae60;
+            --color-text: #333;
+            --color-text-light: #666;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            line-height: 1.6;
+            color: var(--color-text);
+            background-color: #fff;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
+            vertical-align: middle;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 14px;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            margin: 0;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 15px;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            background-color: #FFA500;
+            color: white;
+            padding: 15px 40px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+
+        .cta-button-secondary {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid white;
+            margin-left: 15px;
+        }
+
+        .cta-button-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 20px;
+            border-bottom: 1px solid var(--color-border);
+            margin-bottom: 0px;
+            margin-top: 0px;
+        }
+
+        section h2 {
+            font-size: 36px;
+            margin-bottom: 30px;
+            color: var(--color-primary);
+            text-align: center;
+        }
+
+        section h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--color-dark);
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            font-size: 16px;
+            color: var(--color-text-light);
+            line-height: 1.8;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            background: var(--color-light);
+            padding: 30px;
+            border-radius: 8px;
+            border-left: 5px solid var(--color-secondary);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-card h4 {
+            color: var(--color-primary);
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .feature-card p {
+            color: var(--color-text-light);
+            font-size: 15px;
+        }
+
+        /* Template Details */
+        .template-section {
+            background-color: var(--color-light);
+            padding: 40px;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+
+        .template-section h3 {
+            color: var(--color-primary);
+        }
+
+        .template-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 25px;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            color: var(--color-text);
+        }
+
+        .feature-list li:before {
+            content: "✓ ";
+            color: var(--color-success);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        /* Pricing Section */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .pricing-card {
+            background: white;
+            border: 2px solid var(--color-border);
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .pricing-card:hover {
+            border-color: var(--color-secondary);
+            box-shadow: 0 8px 20px rgba(31, 128, 135, 0.15);
+        }
+
+        .pricing-card h4 {
+            color: var(--color-primary);
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .price {
+            font-size: 32px;
+            color: var(--color-secondary);
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .price-period {
+            color: var(--color-text-light);
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .pricing-card .cta-button {
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        /* Who Should Use */
+        .audience-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .audience-item {
+            background: var(--color-light);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--color-accent);
+        }
+
+        .audience-item h4 {
+            color: var(--color-primary);
+            margin-bottom: 8px;
+        }
+
+        /* Additional Templates */
+        .templates-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .template-item {
+            background: white;
+            border: 1px solid var(--color-border);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .template-item h4 {
+            color: var(--color-primary);
+            margin-bottom: 10px;
+        }
+
+        /* FAQ Section */
+        .faq-item {
+            background: var(--color-light);
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .faq-item h4 {
+            color: var(--color-primary);
+            margin-bottom: 10px;
+        }
+
+        .faq-answer {
+            color: var(--color-text-light);
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--color-dark);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        footer a {
+            color: var(--color-secondary);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .template-features {
+                grid-template-columns: 1fr;
+            }
+
+            nav a {
+                margin-left: 15px;
+                font-size: 12px;
+            }
+
+            .cta-button-secondary {
+                display: block;
+                margin-left: 0;
+                margin-top: 10px;
+            }
+        }
+
+        .highlight {
+            color: var(--color-secondary);
+            font-weight: bold;
+        }
+
+        .trust-badge {
+            display: block;
+            background: transparent;
+            padding: 8px 0;
+            border-radius: 5px;
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.85);
+            margin-top: 12px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <div class="navbar container">
+            <div class="logo">
+                <img src="logo.png" alt="Docfiyo Logo">
+                <span>Docfiyo</span>
+            </div>
+            <nav>
+                <a href="#template">Template</a>
+                <a href="#features">Features</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#faq">FAQ</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <!-- Left Content & Right Video Layout -->
+            <div style="margin-top: 0px; display: flex; align-items: center; justify-content: space-between; gap: 50px; flex-wrap: wrap;">
+                <!-- Left Section - All Text & Buttons Centered -->
+                <div style="flex: 1; min-width: 300px; text-align: center;">
+                    <h1 style="font-size: 48px; margin-bottom: 20px; line-height: 1.2;">Save Hours on Solar Proposals</h1>
+                    <p style="font-size: 20px; margin-bottom: 15px; opacity: 0.95;">Professional Excel templates that automate calculations and help your solar business work faster</p>
+                    <div class="trust-badge">✓ Ready-to-use • No customization needed • Instant access</div>
+                    
+                    <!-- CTA Buttons -->
+                    <div style="margin-top: 30px;">
+                        <button class="cta-button" onclick="window.open('https://forms.gle/AwZHUAUbfjhPydCu8', '_blank')" style="display: block; margin: 0 auto 15px auto;">Buy Solar Proposal Template</button>
+                        <p style="font-size: 14px; color: rgba(255, 255, 255, 0.8); margin: 10px 0;">or</p>
+                        <button class="cta-button" onclick="window.open('https://forms.gle/AwZHUAUbfjhPydCu8', '_blank')" style="display: block; margin: 0 auto; background-color: rgba(255, 255, 255, 0.2); border: 2px solid white;">Learn More</button>
+                    </div>
+                </div>
+
+                <!-- Right Video Placeholder -->
+                <div style="flex: 1; min-width: 280px; max-width: 450px;">
+                    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.3);">
+                        <iframe 
+                            width="560" 
+                            height="315" 
+                            src="https://www.youtube.com/embed/F_CpIIoxdwQ?si=fGcmnNX0CzUWX2B8" 
+                            title="YouTube video player" 
+                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Docfiyo -->
+    <section id="about" class="container" style="margin-top: 0px; padding-top: 30px; padding-bottom: 30px;">
+        <h2>About Docfiyo</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p><strong>Docfiyo provides ready-to-use Excel templates</strong> designed specifically for solar companies, EPC firms, and solar consultants in India.</p>
+                <p>We understand that solar proposal preparation takes time. Manual calculations, formatting, and data entry slow down your sales process.</p>
+                <p>Our <strong>Excel-based templates</strong> remove this burden. No software installation. No complex setup. Just open, fill in your data, and generate professional proposals.</p>
+                <p>Since our templates are <strong>preset and fixed-format</strong>, you get instant value without waiting for customization.</p>
+            </div>
+            <div class="about-text">
+                <h3 style="margin-top: 0;">How Docfiyo Helps You</h3>
+                <ul class="feature-list">
+                    <li>Reduce proposal preparation time by hours</li>
+                    <li>Eliminate manual calculation errors</li>
+                    <li>Present professional, consistent proposals</li>
+                    <li>Focus on closing deals, not paperwork</li>
+                    <li>Works with Windows on Laptop and PC - Microsoft Version 2013 & Above</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solar Proposal Template -->
+    <section id="template" class="container" style="margin-top: 0px; padding-top: 30px; padding-bottom: 30px;">
+        <h2>Solar Proposal Excel Template</h2>
+        
+        <div class="template-section">
+            <h3>What is Included</h3>
+            <p>Our <span class="highlight">Solar Proposal Excel Template</span> is a complete, ready-to-use proposal document. Simply fill in your company details, customer information, and project specifications. The template handles all calculations automatically.</p>
+            
+            <div class="template-features">
+                <div>
+                    <h4>Template Calculates Automatically:</h4>
+                    <ul class="feature-list">
+                        <li>Payback period</li>
+                        <li>Annual energy generation</li>
+                        <li>Annual savings</li>
+                        <li>Monthly generation & savings</li>
+                        <li>Environmental impact (CO₂ reduction, trees saved)</li>
+                        <li>Graphical presentation of monthly savings</li>
+                        <li>30-year comparison: Bill before & after installation</li>
+                        <li>Auto-calculated 30-year savings summary table</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>You Can Customize:</h4>
+                    <ul class="feature-list">
+                        <li>Your company name and logo details</li>
+                        <li>Customer name and contact information</li>
+                        <li>Project size and technical specifications</li>
+                        <li>Pricing and rate structures</li>
+                        <li>Payment terms and conditions</li>
+                        <li>Discount percentage</li>
+                        <li>Scope of work</li>
+                        <li>Terms & conditions</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div style="background: #fff3cd; padding: 20px; border-radius: 8px; margin: 30px 0; border-left: 4px solid #ffc107;">
+            <strong>Important:</strong> The template structure and layout are fixed. We provide the template pre-optimized and ready to use as-is. Design and structural customization is not included in the base package. However, customization services are available on a paid basis. Please contact us for customization quotes.
+        </div>
+    </section>
+
+    <!-- Key Features -->
+    <section id="features" class="container" style="margin-top: 0px; padding-top: 30px; padding-bottom: 30px;">
+        <h2>Key Features</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <h4>⚡ Auto Calculations</h4>
+                <p>All formulas are built-in. Change a value and calculations update instantly. No manual math errors.</p>
+            </div>
+            <div class="feature-card">
+                <h4>📄 Professional Format</h4>
+                <p>Template is designed to look professional and trustworthy. Impress clients with organized, polished proposals.</p>
+            </div>
+            <div class="feature-card">
+                <h4>✓ Error-Free Formulas</h4>
+                <p>All Excel formulas are tested and verified. You can trust the calculations every time.</p>
+            </div>
+            <div class="feature-card">
+                <h4>💻 Excel-Only</h4>
+                <p>No special software needed. Works with Excel or any spreadsheet application. Use on Windows, Mac, or mobile.</p>
+            </div>
+            <div class="feature-card">
+                <h4>⏱ Saves Time</h4>
+                <p>Prepare proposals in minutes, not hours. Automate the boring work and focus on your business.</p>
+            </div>
+            <div class="feature-card">
+                <h4>🚀 Instant Access</h4>
+                <p>Buy now and download immediately. Start using the template in your next proposal today.</p>
+            </div>
+            <div class="feature-card">
+                <h4>📊 Real-time Calculations</h4>
+                <p>See results instantly as you input data. No waiting for manual recalculations or email updates.</p>
+            </div>
+            <div class="feature-card">
+                <h4>🔒 Secure & Reliable</h4>
+                <p>Your data stays secure. Template uses standard Excel encryption and protection features.</p>
+            </div>
+            <div class="feature-card">
+                <h4>💻 Windows PC & Laptop Only</h4>
+                <p>Optimized for Windows PC and laptop use. Requires Excel on Windows operating system.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="container" style="margin-top: 0px; padding-top: 30px; padding-bottom: 30px;">
+        <h2>Simple Pricing</h2>
+        <p style="text-align: center; color: var(--color-text-light); margin-bottom: 40px;">Choose the license duration that works best for your business</p>
+        
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h4>1 Year License</h4>
+                <div class="price">₹3,000</div>
+                <p class="price-period">Per Template</p>
+                <ul class="feature-list" style="text-align: left; margin-bottom: 20px;">
+                    <li>Excel template full access</li>
+                    <li>1 device installation included</li>
+                    <li>No Creation Limit</li>
+                </ul>
+                <p style="font-size: 12px; color: var(--color-text-light); margin-bottom: 15px;">Additional devices: ₹1,000 per device</p>
+                <button class="cta-button" onclick="window.open('https://forms.gle/AwZHUAUbfjhPydCu8', '_blank')">Buy Now</button>
+            </div>
+
+            <div class="pricing-card">
+                <h4>2 Years License</h4>
+                <div class="price">₹5,000</div>
+                <p class="price-period">Per Template</p>
+                <ul class="feature-list" style="text-align: left; margin-bottom: 20px;">
+                    <li>Excel template full access</li>
+                    <li>2 device installations included</li>
+                    <li>No Creation Limit</li>
+                </ul>
+                <p style="font-size: 12px; color: var(--color-text-light); margin-bottom: 15px;">Additional devices: ₹1,000 per device</p>
+                <button class="cta-button" onclick="window.open('https://forms.gle/AwZHUAUbfjhPydCu8', '_blank')">Buy Now</button>
+            </div>
+
+            <div class="pricing-card" style="border-color: var(--color-secondary); background: linear-gradient(135deg, rgba(31, 128, 135, 0.05) 0%, rgba(44, 169, 182, 0.05) 100%);">
+                <h4>5 Years License</h4>
+                <div class="price">₹10,000</div>
+                <p class="price-period">Per Template</p>
+                <ul class="feature-list" style="text-align: left; margin-bottom: 20px;">
+                    <li>Excel template full access</li>
+                    <li>3 device installations included</li>
+                    <li>No Creation Limit</li>
+                    <li>Best value</li>
+                </ul>
+                <p style="font-size: 12px; color: var(--color-text-light); margin-bottom: 15px;">Additional devices: ₹1,000 per device</p>
+                <button class="cta-button" onclick="window.open('https://forms.gle/AwZHUAUbfjhPydCu8', '_blank')">Buy Now</button>
+            </div>
+        </div>
+
+        <p style="text-align: center; margin-top: 40px; margin-bottom: 40px; color: var(--color-text-light); font-size: 14px;">We will install and set up the template on your specified device(s) upon purchase confirmation.</p>
+    </section>
+
+    <!-- Additional Templates -->
+    <section id="templates" class="container" style="margin-top: 0px; padding-top: 30px; padding-bottom: 30px;">
+        <h2>Other Templates Available</h2>
+        <p style="text-align: center; color: var(--color-text-light); margin-bottom: 30px;">We also offer other professional Excel templates for solar businesses</p>
+        
+        <div class="templates-list">
+            <div class="template-item">
+                <h4>Tax Invoice Template</h4>
+                <p>Professional tax invoice with all required fields. GST-compliant format for Indian businesses.</p>
+                <p style="color: var(--color-text-light); font-size: 14px; margin-top: 10px;">Fixed format • Ready-to-use</p>
+            </div>
+            <div class="template-item">
+                <h4>Proforma Invoice Template</h4>
+                <p>Prepare detailed proforma invoices quickly. Includes pricing, terms, and payment details.</p>
+                <p style="color: var(--color-text-light); font-size: 14px; margin-top: 10px;">Fixed format • Ready-to-use</p>
+            </div>
+            <div class="template-item">
+                <h4>Delivery Challan / PO Template</h4>
+                <p>Track deliveries and purchase orders with a professional, standardized format.</p>
+                <p style="color: var(--color-text-light); font-size: 14px; margin-top: 10px;">Fixed format • Ready-to-use</p>
+            </div>
+        </div>
+
+        <p style="text-align: center; margin-top: 30px; color: var(--color-text-light);">All templates are fixed-format, Excel-based, and ready to use. No customization available.</p>
+    </section>
+
+    <!-- Who Should Use -->
+    <section id="audience" class="container" style="margin-top: 0px; padding-top: 30px; padding-bottom: 30px;">
+        <h2>Who Should Use This Template</h2>
+        
+        <div class="audience-list">
+            <div class="audience-item">
+                <h4>Solar Installers</h4>
+                <p>Prepare professional quotations quickly and close more deals faster.</p>
+            </div>
+            <div class="audience-item">
+                <h4>EPC Companies</h4>
+                <p>Automate proposal generation for multiple projects and clients.</p>
+            </div>
+            <div class="audience-item">
+                <h4>Solar Consultants</h4>
+                <p>Present detailed, professional proposals that build client confidence.</p>
+            </div>
+            <div class="audience-item">
+                <h4>Small & Medium Businesses</h4>
+                <p>Get enterprise-grade proposal templates without enterprise costs.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="container" style="margin-top: 0px; padding-top: 30px; padding-bottom: 30px;">
+        <h2>Frequently Asked Questions</h2>
+        
+        <div class="faq-item">
+            <h4>📋 How do I use the template?</h4>
+            <div class="faq-answer">
+                Simply download the template, open it in Excel, and fill in your company details, customer information, and project specifications. The template will automatically calculate all values (project size, price, BOM, ROI, savings, etc.).
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h4>🔧 Can I customize the template design or structure?</h4>
+            <div class="faq-answer">
+                No. The template structure and layout are fixed. We provide the template as-is, optimized for professional use. You can only modify the data fields (company name, customer details, project size, pricing, etc.).
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h4>💾 What file format is the template?</h4>
+            <div class="faq-answer">
+                The template is in Excel (.xlsx) format. It works on Windows, Mac, or any device with Microsoft Excel or compatible spreadsheet applications (Google Sheets, LibreOffice, etc.).
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h4>⏱ How long does proposal creation take?</h4>
+            <div class="faq-answer">
+                With this template, most users complete a professional proposal in 5-10 minutes. What normally takes 30-60 minutes is now automated and quick.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h4>📥 What happens after I buy?</h4>
+            <div class="faq-answer">
+                You will receive instant access to download the template. No waiting, no email delays. Download immediately and start using right away.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h4>🔄 Are there updates?</h4>
+            <div class="faq-answer">
+                Yes. All updates are included in your license fee. You own the template and can use it throughout your license period without additional charges.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h4>❓ What if I have more questions?</h4>
+            <div class="faq-answer">
+                Contact us via email or message. We're here to help and will respond promptly to any questions about the template.
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); color: white; text-align: center; margin-top: 0px; padding-top: 30px; padding-bottom: 30px;">
+        <div class="container">
+            <h2 style="color: white;">Ready to Save Time on Solar Proposals?</h2>
+            <p style="font-size: 18px; margin-bottom: 30px;">Get instant access to the Solar Proposal Excel Template. Start using it today.</p>
+            <button class="cta-button" onclick="window.open('https://forms.gle/AwZHUAUbfjhPydCu8', '_blank')">Buy Now - ₹3,000 to ₹10,000</button>
+            <p style="font-size: 14px; margin-top: 20px; opacity: 0.9;">Instant download • No customization • Ready to use</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <h3 style="margin-bottom: 20px;">Docfiyo</h3>
+            <p>Professional Excel Templates for Solar Companies in India</p>
+            <p style="margin-top: 20px; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 20px;">
+                © 2026 Docfiyo. All rights reserved. | Email: info@docfiyo.com
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = this.getAttribute('href');
+                const element = document.querySelector(target);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
